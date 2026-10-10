@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +11,7 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="header wrap"><a href="#" class="wordmark" aria-label="Akash V home">av<span>✳</span></a><nav aria-label="Main navigation"><a href="#work">Work <span>06</span></a><a href="#about">About</a><a href="#skills">Toolkit</a></nav><a class="header-link" href="#profile">Let’s connect <span aria-hidden="true">↗</span></a></header>
+<header class="header wrap"><a href="#" class="wordmark" aria-label="Akash V home">av<span>✳</span></a><nav aria-label="Main navigation"><a href="#work">Work <span>07</span></a><a href="#about">About</a><a href="#skills">Toolkit</a></nav><a class="header-link" href="#profile">Let's connect <span aria-hidden="true">↗</span></a></header>
 <main id="main">
 <section class="hero wrap" aria-labelledby="hero-title">
 <div class="eyebrow"><span>DEVELOPER. BUILDER. ENGINEERING STUDENT.</span><span class="location">BENGALURU, INDIA <span aria-hidden="true">↗</span></span></div>
@@ -21,28 +21,121 @@
 </section>
 <section id="work" class="work wrap" aria-labelledby="work-title">
 <div class="section-heading"><div><p class="eyebrow">01 / SELECTED WORK</p><h2 id="work-title">Built with purpose.</h2></div><p>From hackathon ideas<br>to real-world applications.</p></div>
+
+<!-- ═══════════════  UNSTUCK — FLAGSHIP CASE STUDY  ═══════════════ -->
+<article id="unstuck" class="unstuck-case-study">
+  <div class="case-hero">
+    <div class="case-hero-content">
+      <div class="case-hero-meta">
+        <span class="eyebrow">FLAGSHIP PROJECT · AI DESKTOP COACHING</span>
+        <span class="case-badge">✦ RELEASED v1.0.0</span>
+      </div>
+      <h3>Unstuck — Meet Nori</h3>
+      <p class="case-tagline">Your screen. One clear next move.</p>
+      <p class="case-description">Nori is an AI desktop coach that helps people move through unfamiliar software one step at a time. It observes the screen when asked, explains the next action in plain language, and leaves control entirely with the user.</p>
+      <div class="tags"><span>Electron</span><span>TypeScript</span><span>Google Gemini API</span><span>Tesseract OCR</span><span>Windows DPAPI</span></div>
+      <div class="case-ctas">
+        <a class="button" href="https://github.com/akashgamerz6575-spec/Unstuck/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer">Download for Windows <span aria-hidden="true">↗</span></a>
+        <a class="case-link" href="https://github.com/akashgamerz6575-spec/Unstuck" target="_blank" rel="noopener noreferrer">View source on GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <div class="case-hero-visual">
+      <img src="assets/unstuck-hero.jpg" alt="Unstuck coaching panel showing Nori guiding a user through a spreadsheet task with a highlighted Chart menu button" loading="lazy">
+    </div>
+  </div>
+
+  <div class="case-narrative">
+    <div class="case-section">
+      <p class="eyebrow">THE PROBLEM</p>
+      <h4>Beginners don't need automation.<br>They need someone beside them.</h4>
+      <p>Most software help is either a passive wall of documentation or full automation that removes agency. Neither teaches. Beginners get stuck on a single unfamiliar button and give up — not because the task is hard, but because no one is there to say <em>"click that one, right there."</em></p>
+    </div>
+    <div class="case-section">
+      <p class="eyebrow">THE APPROACH</p>
+      <h4>Observe on demand.<br>Guide one step at a time.</h4>
+      <p>Unstuck captures the screen only when the user asks. The Gemini multimodal model reads the visible application state, and Nori translates that into a single, clear next action. A local Tesseract OCR engine grounds the response to real on-screen controls, drawing pass-through bounding-box highlights the user can click straight through. Each step is verified before advancing — no false progress, no guessing.</p>
+    </div>
+  </div>
+
+  <div class="case-architecture">
+    <p class="eyebrow">ENGINEERING</p>
+    <h4>Three-process Electron architecture with zero-leak security</h4>
+    <div class="case-arch-grid">
+      <div class="case-arch-image">
+        <img src="assets/unstuck-architecture.jpg" alt="Unstuck three-process architecture diagram: Main Process with DPAPI vault and OCR engine, Coach Renderer with step guidance and TTS, Overlay Renderer with pass-through click highlights" loading="lazy">
+      </div>
+      <div class="case-arch-details">
+        <div class="arch-item">
+          <strong>Main Process</strong>
+          <p>Orchestrates screen capture, runs the Tesseract OCR engine worker, manages the Gemini API client, and guards credentials with Windows DPAPI encryption. The raw API key never crosses IPC boundaries.</p>
+        </div>
+        <div class="arch-item">
+          <strong>Coach Renderer</strong>
+          <p>Sandboxed context-isolated window displaying step-by-step guidance, progress tracking, and accessible text-to-speech via the Web Speech API.</p>
+        </div>
+        <div class="arch-item">
+          <strong>Overlay Renderer</strong>
+          <p>Transparent click-through window rendering high-contrast bounding boxes over verified on-screen controls. Mouse events pass straight through to the target application.</p>
+        </div>
+        <div class="arch-item">
+          <strong>BYOK Privacy Model</strong>
+          <p>Bring Your Own Key. The user's Gemini API key is encrypted at rest with Windows DPAPI, never stored in plaintext, never logged, and never sent anywhere other than Google's official API endpoint.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-boundaries">
+    <p class="eyebrow">HONEST BOUNDARIES</p>
+    <div class="boundaries-grid">
+      <div class="boundary-item">
+        <span class="boundary-icon" aria-hidden="true">✓</span>
+        <div>
+          <strong>What Nori does</strong>
+          <p>On-demand screen observation, grounded next-step guidance, progress verification, mistake recovery, and local text-to-speech.</p>
+        </div>
+      </div>
+      <div class="boundary-item">
+        <span class="boundary-icon boundary-caution" aria-hidden="true">—</span>
+        <div>
+          <strong>Current scope</strong>
+          <p>Windows 11 single-monitor desktop. LibreOffice Calc is the verified benchmark preset; other applications use text-only guidance without coordinate overlays.</p>
+        </div>
+      </div>
+      <div class="boundary-item">
+        <span class="boundary-icon boundary-no" aria-hidden="true">✗</span>
+        <div>
+          <strong>What Nori doesn't do</strong>
+          <p>No automatic mouse or keyboard control. No background polling or screen streaming. No user accounts or cloud storage. No multi-monitor support.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+<!-- ═══════════════  END UNSTUCK CASE STUDY  ═══════════════ -->
+
 <article class="featured project">
-<div class="feature-visual" aria-label="3D spatial mapping project"><div class="visual-top"><span>SPATIAL SYSTEMS</span><span>PROJECT / 01</span></div><div class="spatial-type" aria-hidden="true">3D<span>LAND.<br>SPACE.<br>POSSIBILITY.</span></div><div class="visual-bottom"><span>ULPIN / VOLUMETRIC CADASTRE</span><span aria-hidden="true">[ X, Y, Z ]</span></div></div>
+<div class="feature-visual" aria-label="3D spatial mapping project"><div class="visual-top"><span>SPATIAL SYSTEMS</span><span>PROJECT / 02</span></div><div class="spatial-type" aria-hidden="true">3D<span>LAND.<br>SPACE.<br>POSSIBILITY.</span></div><div class="visual-bottom"><span>ULPIN / VOLUMETRIC CADASTRE</span><span aria-hidden="true">[ X, Y, Z ]</span></div></div>
 <div class="feature-copy"><p class="eyebrow">SMART INDIA HACKATHON</p><h3>A new dimension<br>to land records.</h3><p class="project-name">3D ULPIN & Volumetric Cadastral System</p><p>A 3D spatial mapping platform connecting computer vision, volumetric land-record visualization, and emergency rescue modes.</p><div class="tags"><span>Computer vision</span><span>3D visualization</span><span>Spatial mapping</span></div><details><summary>Inside the project <span aria-hidden="true">+</span></summary><p>The platform brings land records into three dimensions, with volumetric visualization and emergency rescue modes as part of the same spatial experience.</p></details></div>
 </article>
 <div class="project-grid">
-<article class="project card truthguard"><div class="card-top"><span class="project-number">02</span><span class="eyebrow">AI · MEDIA VERIFICATION</span><span class="card-symbol" aria-hidden="true">◎</span></div><h3>TruthGuard AI</h3><p class="project-subtitle">Deepfake detection & fact-checking</p><p>A media-verification platform with image, video, and audio analysis workflows, plus natural-language fact-checking powered by Gemma 2 9B.</p><div class="tags"><span>Next.js</span><span>FastAPI</span><span>Hugging Face</span><span>Firestore</span></div><details><summary>Inside the project <span aria-hidden="true">+</span></summary><p>Built a workflow supporting media uploads up to 1 GB, with configurable sensitivity and noise-reduction thresholds. An explainability dashboard and raw-signal analyzer make analysis results easier to inspect.</p><p>Integrated Gemma 2 9B through Hugging Face Inference APIs for claim verdicts, confidence levels, and credibility attribution. Firestore stores verification logs, while a monitoring dashboard tracks misinformation-spread indicators.</p></details></article>
-<article class="project card"><div class="card-top"><span class="project-number">03</span><span class="eyebrow">AI · HACKATHON</span><span class="card-symbol" aria-hidden="true">✳</span></div><h3>AgriVision Pro</h3><p class="project-subtitle">Intelligence for agriculture</p><p>An AI-powered agricultural dashboard bringing automated crop disease diagnostics and real-time local weather into one view.</p><div class="tags"><span>Artificial intelligence</span><span>Crop diagnostics</span><span>Weather telemetry</span></div><details><summary>Inside the project <span aria-hidden="true">+</span></summary><p>An AI image-scanning workflow helps identify potential plant diseases and health problems. Localized weather telemetry and native-language interaction bring field conditions and accessible communication into the same experience for rural farmers.</p></details></article>
-<article class="project card"><div class="card-top"><span class="project-number">04</span><span class="eyebrow">HARDWARE · AUTOMATION</span><span class="card-symbol" aria-hidden="true">⌘</span></div><h3>Voice to action.</h3><p class="project-subtitle">Voice-Controlled IoT Prototype</p><p>A voice-automated hardware prototype connecting Python speech recognition, ambient light sensing, and Arduino serial control.</p><div class="tags"><span>Python</span><span>Arduino Uno</span><span>LDR sensors</span></div><details><summary>Inside the project <span aria-hidden="true">+</span></summary><p>Speech recognition provides the voice interface, serial communication connects Python with Arduino, and an LDR sensor adds ambient light input.</p></details></article>
-<article class="project card"><div class="card-top"><span class="project-number">05</span><span class="eyebrow">BACKEND ENGINEERING</span><span class="card-symbol" aria-hidden="true">{ }</span></div><h3>CodeAlpha</h3><p class="project-subtitle">E-Commerce Service</p><p>RESTful backend architecture for an e-commerce platform, deployed on Render with persistent database routing.</p><div class="tags"><span>RESTful APIs</span><span>Render</span><span>Database integration</span></div><details><summary>Inside the project <span aria-hidden="true">+</span></summary><p>The project focuses on the service layer: RESTful backend architecture, persistent database routing, and deployment on Render.</p></details></article>
-<article class="project card"><div class="card-top"><span class="project-number">06</span><span class="eyebrow">FULL-STACK · PRODUCTIVITY</span><span class="card-symbol" aria-hidden="true">≡</span></div><h3>Task Management</h3><p class="project-subtitle">From to-do to done.</p><p>A responsive MERN application for creating, organizing, and tracking tasks, with dynamic React workflows and persistent backend services.</p><div class="tags"><span>React</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span></div><details><summary>Inside the project <span aria-hidden="true">+</span></summary><p>Designed APIs and backend services with data validation, React state management, and performance-focused UI/UX to support everyday task management.</p></details></article>
+<article class="project card truthguard"><div class="card-top"><span class="project-number">03</span><span class="eyebrow">AI · MEDIA VERIFICATION</span><span class="card-symbol" aria-hidden="true">◎</span></div><h3>TruthGuard AI</h3><p class="project-subtitle">Deepfake detection & fact-checking</p><p>A media-verification platform with image, video, and audio analysis workflows, plus natural-language fact-checking powered by Gemma 2 9B.</p><div class="tags"><span>Next.js</span><span>FastAPI</span><span>Hugging Face</span><span>Firestore</span></div><details><summary>Inside the project <span aria-hidden="true">+</span></summary><p>Built a workflow supporting media uploads up to 1 GB, with configurable sensitivity and noise-reduction thresholds. An explainability dashboard and raw-signal analyzer make analysis results easier to inspect.</p><p>Integrated Gemma 2 9B through Hugging Face Inference APIs for claim verdicts, confidence levels, and credibility attribution. Firestore stores verification logs, while a monitoring dashboard tracks misinformation-spread indicators.</p></details></article>
+<article class="project card"><div class="card-top"><span class="project-number">04</span><span class="eyebrow">AI · HACKATHON</span><span class="card-symbol" aria-hidden="true">✳</span></div><h3>AgriVision Pro</h3><p class="project-subtitle">Intelligence for agriculture</p><p>An AI-powered agricultural dashboard bringing automated crop disease diagnostics and real-time local weather into one view.</p><div class="tags"><span>Artificial intelligence</span><span>Crop diagnostics</span><span>Weather telemetry</span></div><details><summary>Inside the project <span aria-hidden="true">+</span></summary><p>An AI image-scanning workflow helps identify potential plant diseases and health problems. Localized weather telemetry and native-language interaction bring field conditions and accessible communication into the same experience for rural farmers.</p></details></article>
+<article class="project card"><div class="card-top"><span class="project-number">05</span><span class="eyebrow">HARDWARE · AUTOMATION</span><span class="card-symbol" aria-hidden="true">⌘</span></div><h3>Voice to action.</h3><p class="project-subtitle">Voice-Controlled IoT Prototype</p><p>A voice-automated hardware prototype connecting Python speech recognition, ambient light sensing, and Arduino serial control.</p><div class="tags"><span>Python</span><span>Arduino Uno</span><span>LDR sensors</span></div><details><summary>Inside the project <span aria-hidden="true">+</span></summary><p>Speech recognition provides the voice interface, serial communication connects Python with Arduino, and an LDR sensor adds ambient light input.</p></details></article>
+<article class="project card"><div class="card-top"><span class="project-number">06</span><span class="eyebrow">BACKEND ENGINEERING</span><span class="card-symbol" aria-hidden="true">{ }</span></div><h3>CodeAlpha</h3><p class="project-subtitle">E-Commerce Service</p><p>RESTful backend architecture for an e-commerce platform, deployed on Render with persistent database routing.</p><div class="tags"><span>RESTful APIs</span><span>Render</span><span>Database integration</span></div><details><summary>Inside the project <span aria-hidden="true">+</span></summary><p>The project focuses on the service layer: RESTful backend architecture, persistent database routing, and deployment on Render.</p></details></article>
+<article class="project card"><div class="card-top"><span class="project-number">07</span><span class="eyebrow">FULL-STACK · PRODUCTIVITY</span><span class="card-symbol" aria-hidden="true">≡</span></div><h3>Task Management</h3><p class="project-subtitle">From to-do to done.</p><p>A responsive MERN application for creating, organizing, and tracking tasks, with dynamic React workflows and persistent backend services.</p><div class="tags"><span>React</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span></div><details><summary>Inside the project <span aria-hidden="true">+</span></summary><p>Designed APIs and backend services with data validation, React state management, and performance-focused UI/UX to support everyday task management.</p></details></article>
 </div>
 </section>
-<section id="about" class="about wrap" aria-labelledby="about-title"><p class="eyebrow">02 / A LITTLE ABOUT ME</p><div class="about-grid"><div><h2 id="about-title">Curiosity is the start.<br><span>Building is the point.</span></h2><p>I'm Akash, an engineering student in Bengaluru working across full-stack development, artificial intelligence, and IoT. My projects range from media verification and agricultural intelligence to spatial mapping and voice-controlled hardware. I’ve also completed a full-stack development internship at CodeAlpha.</p><p>I’m interested in the places these disciplines meet—and what I can build when they do.</p></div><div class="academic"><div class="academic-top"><span class="eyebrow">ACADEMIC SNAPSHOT</span><span aria-hidden="true">↗</span></div><strong>9.75<span>SGPA</span></strong><h3>B.E. Computer Science<br>& Engineering</h3><p>Artificial Intelligence & Machine Learning</p><div class="university">Sapthagiri NPS University<br><span>Bengaluru, Karnataka · Expected graduation 2029</span></div></div></div></section>
+<section id="about" class="about wrap" aria-labelledby="about-title"><p class="eyebrow">02 / A LITTLE ABOUT ME</p><div class="about-grid"><div><h2 id="about-title">Curiosity is the start.<br><span>Building is the point.</span></h2><p>I'm Akash, an engineering student in Bengaluru working across full-stack development, artificial intelligence, and IoT. My projects range from media verification and agricultural intelligence to spatial mapping and voice-controlled hardware. I've also completed a full-stack development internship at CodeAlpha.</p><p>I'm interested in the places these disciplines meet—and what I can build when they do.</p></div><div class="academic"><div class="academic-top"><span class="eyebrow">ACADEMIC SNAPSHOT</span><span aria-hidden="true">↗</span></div><strong>9.75<span>SGPA</span></strong><h3>B.E. Computer Science<br>& Engineering</h3><p>Artificial Intelligence & Machine Learning</p><div class="university">Sapthagiri NPS University<br><span>Bengaluru, Karnataka · Expected graduation 2029</span></div></div></div></section>
 <section id="experience" class="experience wrap" aria-labelledby="experience-title"><div class="section-heading"><div><p class="eyebrow">03 / EXPERIENCE & RECOGNITION</p><h2 id="experience-title">Learning by doing.</h2></div></div><div class="experience-grid"><article class="internship"><p class="eyebrow">MAY 20 – JUNE 20, 2026 · VIRTUAL</p><h3>CodeAlpha</h3><p class="experience-role">Full Stack Development Intern</p><p>Completed a one-month internship developing and enhancing MERN applications, from responsive interfaces and authentication to backend API integration and database design.</p><p>Applied debugging, data validation, and practical application development throughout the internship.</p><div class="tags"><span>Certificate of Completion</span><span>Letter of Recommendation</span></div></article><div class="recognition"><article><p class="eyebrow">AI PROMPT ENGINEERING COMPETITION</p><h3><span>1st place.</span> Prompt Wars 2026</h3><p>Organized by the Department of CSE (AI & ML), Sapthagiri NPS University.</p></article><article><p class="eyebrow">GOOGLE DEVELOPER GROUP</p><h3>Build with AI Solution Challenge</h3><p>Participant</p></article></div></div></section>
 <section id="skills" class="skills wrap" aria-labelledby="skills-title"><div class="section-heading"><div><p class="eyebrow">04 / MY TOOLKIT</p><h2 id="skills-title">Across the stack.<br>Beyond the screen.</h2></div><p>The tools I use to turn<br>ideas into working systems.</p></div><div class="skill-list">
-<div class="skill-row"><span class="skill-index">01</span><h3>Languages</h3><p>Java <b>·</b> Python <b>·</b> C <b>·</b> C++ <b>·</b> JavaScript (ES6+) <b>·</b> HTML5 <b>·</b> CSS3</p></div>
+<div class="skill-row"><span class="skill-index">01</span><h3>Languages</h3><p>Java <b>·</b> Python <b>·</b> C <b>·</b> C++ <b>·</b> JavaScript (ES6+) <b>·</b> TypeScript <b>·</b> HTML5 <b>·</b> CSS3</p></div>
 <div class="skill-row"><span class="skill-index">02</span><h3>Frontend</h3><p>React <b>·</b> Next.js <b>·</b> Tailwind CSS <b>·</b> Responsive UI Design <b>·</b> WebRTC</p></div>
 <div class="skill-row"><span class="skill-index">03</span><h3>Backend</h3><p>Node.js <b>·</b> Express.js <b>·</b> FastAPI <b>·</b> RESTful APIs <b>·</b> Socket.io</p></div>
 <div class="skill-row"><span class="skill-index">04</span><h3>Data & cloud</h3><p>MongoDB (MERN) <b>·</b> Firebase <b>·</b> Cloud Firestore <b>·</b> Firebase Hosting <b>·</b> Database Design</p></div>
-<div class="skill-row"><span class="skill-index">05</span><h3>Hardware & IoT</h3><p>Arduino Uno <b>·</b> LDR sensors <b>·</b> Serial communication <b>·</b> Speech Recognition integration</p></div>
-<div class="skill-row"><span class="skill-index">06</span><h3>Developer tools</h3><p>Git <b>·</b> GitHub <b>·</b> Render <b>·</b> VS Code <b>·</b> Postman <b>·</b> Debugging & Testing <b>·</b> Google Antigravity</p></div><div class="skill-row"><span class="skill-index">07</span><h3>AI & machine learning</h3><p>AI/ML Fundamentals <b>·</b> Gemma 2 9B <b>·</b> Hugging Face Inference APIs <b>·</b> Prompt Engineering <b>·</b> AI Image Analysis</p></div></div></section>
-<section id="profile" class="closing wrap"><p class="eyebrow">LET’S CONNECT</p><div class="closing-top"><h2>Always curious.<br><span>Always building.</span></h2><a class="round-link" href="mailto:akashgamerz6575@gmail.com" aria-label="Email Akash V">↗</a></div><div class="contact-links"><a href="mailto:akashgamerz6575@gmail.com">akashgamerz6575@gmail.com <span aria-hidden="true">↗</span></a><a href="https://github.com/akashgamerz6575-spec" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/akash-v-76aa8b3a7" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></div><div class="profile-meta"><div><span class="eyebrow">BASED IN</span><p>Bengaluru, Karnataka, India</p></div><div><span class="eyebrow">LANGUAGES I SPEAK</span><p>English · Kannada · Tamil · Hindi</p></div><div><span class="eyebrow">FOCUS</span><p>Full-stack · AI · IoT</p></div></div></section>
+<div class="skill-row"><span class="skill-index">05</span><h3>Desktop & IoT</h3><p>Electron <b>·</b> Arduino Uno <b>·</b> LDR sensors <b>·</b> Serial communication <b>·</b> Speech Recognition <b>·</b> Windows DPAPI</p></div>
+<div class="skill-row"><span class="skill-index">06</span><h3>Developer tools</h3><p>Git <b>·</b> GitHub <b>·</b> GitHub Actions CI <b>·</b> Render <b>·</b> VS Code <b>·</b> Postman <b>·</b> Debugging & Testing <b>·</b> Google Antigravity</p></div><div class="skill-row"><span class="skill-index">07</span><h3>AI & machine learning</h3><p>Google Gemini API <b>·</b> Gemma 2 9B <b>·</b> Hugging Face Inference APIs <b>·</b> Tesseract OCR <b>·</b> Prompt Engineering <b>·</b> AI Image Analysis</p></div></div></section>
+<section id="profile" class="closing wrap"><p class="eyebrow">LET'S CONNECT</p><div class="closing-top"><h2>Always curious.<br><span>Always building.</span></h2><a class="round-link" href="mailto:akashgamerz6575@gmail.com" aria-label="Email Akash V">↗</a></div><div class="contact-links"><a href="mailto:akashgamerz6575@gmail.com">akashgamerz6575@gmail.com <span aria-hidden="true">↗</span></a><a href="https://github.com/akashgamerz6575-spec" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/akash-v-76aa8b3a7" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></div><div class="profile-meta"><div><span class="eyebrow">BASED IN</span><p>Bengaluru, Karnataka, India</p></div><div><span class="eyebrow">LANGUAGES I SPEAK</span><p>English · Kannada · Tamil · Hindi</p></div><div><span class="eyebrow">FOCUS</span><p>Full-stack · AI · IoT</p></div></div></section>
 </main>
 <footer class="footer wrap"><a href="#" class="wordmark" aria-label="Akash V home">av<span>✳</span></a><p>© <span id="year">2026</span> Akash V</p><a href="#">Back to top <span aria-hidden="true">↑</span></a></footer>
 <script src="script.js"></script>
